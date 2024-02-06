@@ -1,0 +1,63 @@
+// This is base reset for global components.
+//
+// Note: If you use a framework that includes base styling then you need to remove this file.
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+body,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  @include font-smoothing(on);
+  color: var(--base-text-color);
+  background: var(--base-background-color);
+  font-family: var(--base-font-family);
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  font-weight: 400;
+  min-width: var(--base-min-width);
+  position: relative;
+}
+
+// adaptive images
+//* Tip: <img src="high-quality-img" style="background-image: url(low-quality-img)"></img> for some "lazy loading"
+//* Tip: for correct and easy setup shape-outside value property - use devtools! (also if you want setup some clip or polygon)
+img {
+  max-width: 100%;
+  min-height: 1px;
+  height: auto;
+  vertical-align: middle; // mb in text
+  font-style: italic; // alt attr
+  shape-margin: 1rem; // && shape-outside + float
+  background-repeat: no-repeat; // because we use cover size
+  background-size: cover;
+  object-fit: cover;
+}
+
+// google map fix
+.gm-style img {
+  max-width: none;
+}

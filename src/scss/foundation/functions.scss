@@ -1,0 +1,96 @@
+/// Convert px to rem
+/// @access public
+/// @param {Number} $px - Value of type in pixels
+/// @returns {Number} In rem
+/// @example rem(48px);
+
+@function rem($px) {
+  @if unit($px) != "px" {
+    @warn "Expected argument $px to be of type `px`, instead received: `#{unit($px)}`";
+  }
+
+  @return ($px / $rem) * 1rem;
+}
+
+/// Colors black & white
+/// @example background: black(0.15);
+/// color: white(0.9);
+
+@function black($opacity) {
+  @return rgba(black, $opacity);
+}
+
+@function white($opacity) {
+  @return rgba(white, $opacity);
+}
+
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+/// Update a key deeply nested
+/// @author Hugo Giraudel
+/// @param {Map} $map - Map to update
+/// @param {Arglist} $keys - Keys to access to value to update
+/// @param {*} $value - New value (last member of `$keys`)
+/// @return {Map} - Updated map
+
+@function map-deep-set($map, $keys...) {
+  $map-list: ($map);
+  $result: null;
+
+  @if length($keys) ==2 {
+    @return map-merge(
+      $map,
+      (
+        nth($keys, 1): nth($keys, -1)
+      )
+    );
+  }
+
+  @for $i from 1 through length($keys) - 2 {
+    $map-list: append($map-list, map-get(nth($map-list, -1), nth($keys, $i)));
+  }
+
+  @for $i from length($map-list) through 1 {
+    $result: map-merge(
+      nth($map-list, $i),
+      (
+        nth($keys, $i): if($i ==length($map-list), nth($keys, -1), $result)
+      )
+    );
+  }
+
+  @return $result;
+}
+
+/// A map-set function (not included with Sass)
+@function map-set($map, $key, $value) {
+  $new: (
+    $key: $value
+  );
+  @return map-merge($map, $new);
+}
+
+@function get-max($map) {
+  $list: ();
+
+  // Loop through each item in the map
+  @each $map-key, $map-val in $map {
+    $list: append($list, $map-val, comma);
+  }
+
+  // Get the largest number from our list
+  @return max($list...);
+}

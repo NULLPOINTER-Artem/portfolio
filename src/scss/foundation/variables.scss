@@ -1,0 +1,112 @@
+@import "./functions.scss";
+
+// Global variables
+
+// 'rem' base value
+$rem: 10px;
+
+// Breakpoints for include media mixin
+//* First desktop breakpoints
+$breakpoints: (
+  "xxl": 1920px,
+  "xl": 1440px,
+  "lg": 1280px,
+  "md": 992px,
+  "sm": 768px,
+  "xs": 480px
+) !default;
+
+//* First mobile breakpoints
+// $breakpoints-first-mobile: (
+//   "xs": 0px,
+//   "sm": 768px,
+//   "md": 1024px,
+//   "lg": 1440px
+// );
+
+//* Extra points for small phones
+$extra-breakpoints: (
+  "xxs": 380px,
+  "3xs": 360px,
+  "4xs": 320px
+);
+
+// Keywords for include media mixin
+$media-expressions: (
+  "screen": "screen",
+  "print": "print",
+  "handheld": "handheld",
+  "landscape": "(orientation: landscape)",
+  "portrait": "(orientation: portrait)",
+  "retina2x": (
+    "(-webkit-min-device-pixel-ratio: 2)",
+    "(min-resolution: 192dpi)",
+    "(min-resolution: 2dppx)"
+  ),
+  "retina3x": (
+    "(-webkit-min-device-pixel-ratio: 3)",
+    "(min-resolution: 350dpi)",
+    "(min-resolution: 3dppx)"
+  )
+) !default;
+
+$gutter-width: 30px !default;
+
+:root {
+  // Colors
+  --color-white: #fff;
+  --color-black: #000;
+  --color-grey: #999;
+  --color-blue: #39f;
+  --color-charcoal: #101920;
+  --color-yellow: #ffe715;
+  --color-back-brown: #201e21;
+  --color-blue-royal: #234e70;
+  --color-dark-purple: #301934;
+  --color-lilac: #aa98a9;
+  --color-iris: #5d3fd3;
+  --color-beige: #f5f5dc;
+  --color-gold: #ffd700;
+
+  // Fonts
+  --font-sans-serif: var(--font-roboto-main), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  // Body base
+  --base-background-color: var(--color-white);
+  --base-font-family: var(--font-sans-serif);
+  --base-font-size: 1.6rem;
+  --base-line-height: 1.2;
+  --base-text-color: var(--color-black);
+  --base-min-width: 320px;
+
+  // Buttons base
+  --btn-color: var(--color-white);
+  --btn-background: var(--color-blue);
+  --btn-padding: 0.4em 0.7em;
+  --btn-font-size: 1.6rem;
+  --btn-font-family: var(--font-sans-serif);
+
+  // Forms base
+  --form-font-family: var(--font-sans-serif);
+  --form-element-padding: var(--btn-padding);
+  --form-element-border-color: var(--color-grey);
+  --form-element-focus-border-color: var(--color-black);
+  --placeholder-color: var(--color-grey);
+
+  // Headings base
+  --headings-font-family: var(--font-sans-serif);
+  --headings-color: var(--base-text-color);
+
+  // Base font styles for headings
+  --headings-sizes-h1: 3rem;
+  --headings-sizes-h2: 2.7rem;
+  --headings-sizes-h3: 2.4rem;
+  --headings-sizes-h4: 2.1rem;
+  --headings-sizes-h5: 1.7rem;
+  --headings-sizes-h6: 1.5rem;
+}

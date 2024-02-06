@@ -1,0 +1,28 @@
+@use "sass:math";
+
+// Single container class with breakpoint max-widths
+.container {
+  width: 100%;
+  padding-right: math.div($gutter-width, 2);
+  padding-left: math.div($gutter-width, 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@each $breakpoint, $container-max-width in $breakpoints {
+  $max-width: get-max($breakpoints);
+
+  @media (max-width: $container-max-width) {
+    .container {
+      max-width: $container-max-width;
+    }
+  }
+
+  @if $container-max-width == $max-width {
+    @media (min-width: $container-max-width) {
+      .container {
+        min-width: $container-max-width;
+      }
+    }
+  }
+}

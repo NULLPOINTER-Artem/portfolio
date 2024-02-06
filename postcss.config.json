@@ -1,0 +1,33 @@
+{
+  "plugins": [
+    "postcss-flexbugs-fixes",
+    "postcss-combine-media-query",
+    [
+      "postcss-combine-duplicated-selectors",
+      {
+        "removeDuplicatedProperties": true,
+        "removeDuplicatedValues": false
+      }
+    ],
+    [
+      "postcss-preset-env",
+      {
+        "autoprefixer": {
+          "flexbox": "no-2009",
+          "grid": true
+        },
+        "stage": 3,
+        "features": {
+          "custom-properties": false
+        }
+      }
+    ],
+    [
+      "cssnano",
+      {
+        "preset": "default"
+      }
+    ],
+    "postcss-reporter"
+  ]
+}

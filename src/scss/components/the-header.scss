@@ -1,0 +1,38 @@
+.the-header {
+  width: 100%;
+  padding: 25px 20px;
+
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+
+  background-color: var(--color-charcoal);
+}
+
+.the-header__heading {
+  a {
+    font-size: 32px;
+    letter-spacing: 7px;
+
+    color: var(--color-beige);
+  }
+}
+
+.the-header__menu {
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+
+  a {
+    font-size: 20px;
+    color: var(--color-beige);
+
+    &:hover,
+    &:active {
+      color: var(--color-yellow);
+    }
+  }
+}
