@@ -1,18 +1,22 @@
 import { prisma } from "@/db";
 
 // Components
-import TodoItem from "@/components/TodoItem";
+import NotifyComponent from "@/components/NotifyComponent";
 import IconImporter from "@/components/IconImporter";
-import { redirect } from "next/dist/server/api-utils";
+import TodoList from "@/components/TodoList";
 
-function getTodos() {
-  return prisma.todo.findMany({
+async function getTodos() {
+  "use server"
+
+  const todos = await prisma.todo.findMany({
     orderBy: [
       {
         createdAt: 'asc'
       }
     ]
   });
+
+  return todos;
 }
 
 async function toggleTodo(id: string, complete: boolean) {
@@ -39,33 +43,22 @@ async function deleteTodo(id: string) {
 };
 
 export default async function Home() {
-  const todos = await getTodos();
-
   return (
     <main className="home-page">
+      <NotifyComponent />
+
       <h1 className="home-page__heading">Todo List</h1>
 
-      <ul className="todo-list">
-        {todos.length ?
-          todos.map((todo) => <TodoItem
-            key={todo.id}
-            {...todo}
-            toggleTodo={toggleTodo}
-            deleteTodo={deleteTodo}
-            slotCloseIcon={
-              <IconImporter
-                name-icon="close"
-              />
-            }
-          />)
-          :
-          <>
-            <div className="todo-list__empty">
-              You do not have a task yet
-            </div>
-          </>
+      <TodoList
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}
+        getTodos={getTodos}
+        slotCloseIcon={
+          <IconImporter
+            name-icon="close"
+          />
         }
-      </ul>
+      />
     </main>
   );
 }

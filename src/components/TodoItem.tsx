@@ -4,18 +4,19 @@ type TodoItemProps = {
   title: string,
   id: string,
   complete: boolean,
-  toggleTodo: (id: string, complete: boolean) => void;
-  deleteTodo: (id: string) => void;
+  toggleTodo: Function;
+  deleteTodo: Function;
+  fetchData: Function;
   slotCloseIcon: React.ReactNode
 };
 
-export default function TodoItem({ id, title, complete, toggleTodo, deleteTodo, slotCloseIcon }: TodoItemProps) {
+export default function TodoItem({ id, title, complete, toggleTodo, deleteTodo, slotCloseIcon, fetchData }: TodoItemProps) {
   const onChangeLogic = (event: React.ChangeEvent) => {
     toggleTodo(id, (event.target as HTMLInputElement).checked);
   }
   const onDeleteTodo = async (event: React.MouseEvent<HTMLDivElement>) => {
     await deleteTodo(id);
-    window.document.location.href = '/';
+    fetchData();
   };
 
   return (

@@ -13,4 +13,52 @@
     width: min(100%, 500px);
     margin: 20px auto 0;
   }
+
+  .home-page__notify {
+    margin: 0 auto;
+    text-align: center;
+    text-wrap: balance;
+
+    background-color: var(--color-charcoal);
+    padding: 50px 30px;
+    margin-bottom: 40px;
+
+    p {
+      font-size: 24px;
+      line-height: 1.7;
+      color: var(--color-beige);
+
+      a {
+        color: var(--color-iris);
+
+        &:hover {
+          color: var(--color-lilac);
+        }
+      }
+    }
+  }
+
+  .home-page__notify-switcher {
+    position: relative;
+    top: -30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+
+    .home-page__notify-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      text-transform: uppercase;
+      font-size: 18px;
+      color: var(--color-beige);
+
+      &.active {
+        color: var(--color-yellow);
+      }
+    }
+  }
 }
