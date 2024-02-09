@@ -19,7 +19,10 @@ const roboto = Roboto({
 
 // Also you can generate metaData (https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function-1)
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'), // set correct frontend host
+  metadataBase: new URL(
+    (process.env.NODE_ENV === 'production' ?
+      process.env.NEXT_PUBLIC_FRONTEND_HOST_URL : process.env.NEXT_PUBLIC_FRONTEND_DEV_URL) ?? ''
+  ), // set correct frontend host
   title: "Artem Orlov - Frontend Developer | Portfolio",
   description: "Artem Orlov - Frontend Developer | Web Developer Portfolio | React Developer | Vue Developer | Nuxt | Next",
   alternates: {
@@ -35,9 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable}`}>
-        <TheHeader />
-
         <Suspense fallback={<Loading />}>
+          <TheHeader />
+
           {children}
 
           <SmoothScroll />

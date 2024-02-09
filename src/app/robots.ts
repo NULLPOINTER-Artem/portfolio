@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: ['/'],
       },
     ],
-    host: 'http://localhost:3000', // set correct frontend host
-    sitemap: 'http://localhost:3000/sitemap.xml', // set correct frontend host
+    host: process.env.NEXT_PUBLIC_FRONTEND_HOST_URL, // set correct frontend host
+    sitemap: `${process.env.NEXT_PUBLIC_FRONTEND_HOST_URL}sitemap.xml`, // set correct frontend host
   }
 }

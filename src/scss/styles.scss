@@ -13,6 +13,9 @@
 //* Views modules *//
 @import "./views/main";
 
+//* Vendor Styles *//
+
+//* Lenis Styles
 html.lenis {
   height: auto;
   overflow-x: hidden;
@@ -33,3 +36,4 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+//* END - Lenis Styles

@@ -11,10 +11,12 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model Todo {
-  id        String   @id @default(uuid())
-  title     String
-  complete  Boolean
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Feedback {
+  id          String   @id @default(uuid())
+  first_name  String
+  last_name   String
+  description String
+  published   Boolean
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

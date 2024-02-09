@@ -2,13 +2,15 @@ import Link from "next/link"
 
 export default function TheHeader() {
   return (
-    <header className="the-header">
+    <header id="top-page" className="the-header">
       <div className="the-header__heading">
-        <a href={'/'}>Todos</a>
+        <Link href={'#top-page'}>
+          Artem Orlov
+        </Link>
       </div>
 
       <nav className="the-header__menu">
-        <Link href={'/new'} >Create Task</Link>
+        <Link href={'#about'}>About</Link>
       </nav>
     </header>
   )

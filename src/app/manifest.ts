@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Artem Orlov - Front Developer | Portfolio',
+    name: 'Artem Orlov - Frontend Developer | Portfolio',
     short_name: 'A.Orlov - FD | Portfolio',
     description: "Artem Orlov - Frontend Developer's Portfolio",
     start_url: '/',

@@ -4,11 +4,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { useEffect, useRef } from 'react';
 
-type HorizontalSmoothScrollProps = {
+type HorizontalScroll = {
   children: React.ReactNode,
 }
 
-export default function HorizontalSmoothScroll({ children }: HorizontalSmoothScrollProps) {
+export default function HorizontalScroll({ children }: HorizontalScroll) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   let scrollWidth = 0;
