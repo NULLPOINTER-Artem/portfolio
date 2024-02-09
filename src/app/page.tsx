@@ -2,8 +2,11 @@ import { prisma } from "@/db";
 
 // Components
 import NotifyComponent from "@/components/NotifyComponent";
-import IconImporter from "@/components/IconImporter";
 import TodoList from "@/components/TodoList";
+import AboutSection from "@/components/AboutSection";
+import HorizontalSmoothScroll from "@/components/HorizontalSmoothScroll";
+
+export const dynamic = 'force-dynamic'; // use pure SSR
 
 async function getTodos() {
   "use server"
@@ -43,9 +46,17 @@ async function deleteTodo(id: string) {
 };
 
 export default async function Home() {
+  const fetchedTodos = await getTodos();
+
   return (
     <main className="home-page">
-      <NotifyComponent />
+      <AboutSection />
+
+      <HorizontalSmoothScroll>
+        <NotifyComponent />
+        <NotifyComponent />
+        <NotifyComponent />
+      </HorizontalSmoothScroll>
 
       <h1 className="home-page__heading">Todo List</h1>
 
@@ -53,11 +64,7 @@ export default async function Home() {
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
         getTodos={getTodos}
-        slotCloseIcon={
-          <IconImporter
-            name-icon="close"
-          />
-        }
+        fetchedTodos={fetchedTodos}
       />
     </main>
   );

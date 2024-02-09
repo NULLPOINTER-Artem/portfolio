@@ -1,15 +1,10 @@
 "use client"
 
+import { useState } from "react";
+
 // Components
 import TodoItem from "@/components/TodoItem";
-import { useEffect, useState } from "react";
 
-type TodoListProps = {
-  slotCloseIcon: React.ReactNode,
-  getTodos: Function,
-  toggleTodo: Function,
-  deleteTodo: Function,
-};
 interface ITodoItem {
   id: string;
   title: string;
@@ -17,18 +12,28 @@ interface ITodoItem {
   createdAt: Date;
   updatedAt: Date;
 }
+type TodoListProps = {
+  getTodos: Function,
+  toggleTodo: Function,
+  deleteTodo: Function,
+  fetchedTodos: ITodoItem[]
+};
 
-export default function TodoList({ slotCloseIcon, getTodos, toggleTodo, deleteTodo }: TodoListProps) {
-  const [todos, setTodos] = useState<ITodoItem[]>([]);
+export default function TodoList({
+  getTodos, toggleTodo,
+  deleteTodo, fetchedTodos
+}: TodoListProps) {
+  const [todos, setTodos] = useState<ITodoItem[]>(fetchedTodos ?? []);
   const fetchData = async () => {
     setTodos(await getTodos());
   };
 
-  useEffect(() => {
+  const handleRefreshList = () => {
     fetchData();
-  }, []);
+  };
 
-  return (
+  return <>
+    <button type="button" onClick={handleRefreshList}>refresh</button>
     <ul className="todo-list">
       {todos.length ?
         todos.map((todo) => <TodoItem
@@ -37,7 +42,6 @@ export default function TodoList({ slotCloseIcon, getTodos, toggleTodo, deleteTo
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}
           fetchData={fetchData}
-          slotCloseIcon={slotCloseIcon}
         />)
         :
         <>
@@ -47,5 +51,5 @@ export default function TodoList({ slotCloseIcon, getTodos, toggleTodo, deleteTo
         </>
       }
     </ul>
-  )
+  </>
 }

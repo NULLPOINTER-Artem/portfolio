@@ -1,5 +1,7 @@
 "use client"
 
+import IconImporter from "@/components/IconImporter";
+
 type TodoItemProps = {
   title: string,
   id: string,
@@ -7,10 +9,9 @@ type TodoItemProps = {
   toggleTodo: Function;
   deleteTodo: Function;
   fetchData: Function;
-  slotCloseIcon: React.ReactNode
 };
 
-export default function TodoItem({ id, title, complete, toggleTodo, deleteTodo, slotCloseIcon, fetchData }: TodoItemProps) {
+export default function TodoItem({ id, title, complete, toggleTodo, deleteTodo, fetchData }: TodoItemProps) {
   const onChangeLogic = (event: React.ChangeEvent) => {
     toggleTodo(id, (event.target as HTMLInputElement).checked);
   }
@@ -31,7 +32,9 @@ export default function TodoItem({ id, title, complete, toggleTodo, deleteTodo, 
       <label className="todo-list__item-label" htmlFor={id}>{title}</label>
 
       <div className="todo-list__item-icon" role="button" tabIndex={0} onClick={onDeleteTodo}>
-        {slotCloseIcon}
+        <IconImporter
+          name-icon="close"
+        />
       </div>
     </li>
   )

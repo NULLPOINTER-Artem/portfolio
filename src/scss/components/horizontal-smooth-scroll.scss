@@ -1,0 +1,17 @@
+.horizontal-scroll-container {
+  height: 100dvh;
+
+  white-space: nowrap;
+
+  .horizontal-scroll-content {
+    height: 100dvh;
+    white-space: nowrap;
+
+    > * {
+      height: 100dvh;
+
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

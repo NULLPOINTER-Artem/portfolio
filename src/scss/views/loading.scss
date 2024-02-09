@@ -1,0 +1,22 @@
+.loading {
+  height: 100dvh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading__icon {
+  color: var(--color-charcoal);
+  animation: 1s infinite spinner;
+}
+
+@keyframes spinner {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
