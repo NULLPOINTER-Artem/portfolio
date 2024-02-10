@@ -5,6 +5,12 @@
   gap: 25px;
 
   padding-bottom: 30px;
+
+  @include media("sm") {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
 }
 .about-section__desc {
   color: var(--color-charcoal);
@@ -19,10 +25,22 @@
     color: inherit;
     font-size: clamp(14px, 1.5vw, 24px);
     text-wrap: balance;
+
+    @include media("xs") {
+      text-align: justify;
+    }
+
+    a {
+      color: var(--color-deep-burnt-sienna);
+    }
   }
 }
 .about-section__photo {
   width: min(100%, 300px);
+
+  @include media("md") {
+    width: min(100%, 200px);
+  }
 
   .about-section__photo-wrapper {
     background-color: var(--color-charcoal);

@@ -38,6 +38,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable}`}>
+        <div id="top-page" style={{ width: '100%', height: '0px' }}></div>
+
         <Suspense fallback={<Loading />}>
           <TheHeader />
 

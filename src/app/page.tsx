@@ -1,7 +1,7 @@
 // Components
 import AboutSection from "@/components/AboutSection";
 
-export const dynamic = 'force-dynamic'; // use pure SSR
+// export const dynamic = 'force-dynamic'; // use pure SSR
 
 export default async function Home() {
   return (
