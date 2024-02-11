@@ -17,6 +17,7 @@ type LinkType = {
 
 export default function TheHeader() {
   const router = useRouter();
+  const resume_link = 'https://drive.google.com/file/d/14aQReYTJqbLPM3YcWo_LoWkUQ5L7QuAm/view?usp=drive_link';
 
   const [links, setLinks] = useState<LinkType[]>([
     {
@@ -107,6 +108,9 @@ export default function TheHeader() {
       </div>
 
       <nav className="the-header__menu the-header__menu--center">
+        <a href={resume_link} target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
         {links.map((link: LinkType) => (
           <Link
             key={link.id}
@@ -139,6 +143,9 @@ export default function TheHeader() {
           </button>
 
           <nav className="the-header__menu">
+            <a href={resume_link} target="_blank" rel="noopener noreferrer">
+              Resume
+            </a>
             <Link
               href={'#top-page'}
               onClick={(event) => handleLinkScroll('#top-page', event, true)}

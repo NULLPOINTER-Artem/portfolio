@@ -16,7 +16,7 @@ export default function AboutSection() {
         </p>
         <p>
           Ready to take your online presence to the next level? <b>Let&#39;s collaborate</b> and
-          bring your digital vision to reality. <Link href={'#contact'}>Contact me today</Link> to discuss your project
+          bring your digital vision to reality. <Link href={'#footer'}>Contact me today</Link> to discuss your project
           requirements and embark on a journey toward digital success.
         </p>
       </div>

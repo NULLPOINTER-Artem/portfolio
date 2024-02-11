@@ -7,6 +7,7 @@ import "./../scss/styles.scss";
 // Components
 import TheHeader from "@/components/TheHeader";
 import SmoothScroll from "@/components/SmoothScroll";
+import TheFooter from "@/components/TheFooter";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -38,10 +39,10 @@ export default function RootLayout({
       <body className={`${roboto.variable}`}>
         <div id="top-page" style={{ width: '100%', height: '0px' }}></div>
         <TheHeader />
+        {children}
+        <TheFooter />
 
-          {children}
-
-          <SmoothScroll />
+        <SmoothScroll />
       </body>
     </html>
   );

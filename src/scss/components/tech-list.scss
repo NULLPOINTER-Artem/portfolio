@@ -17,6 +17,11 @@
 .tech-list__item-icon {
   width: 44px;
   height: 44px;
+
+  @include media("xs") {
+    width: 27px;
+    height: 27px;
+  }
 }
 .tech-list__item-name {
   margin-top: 7px;
