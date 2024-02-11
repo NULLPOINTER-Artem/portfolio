@@ -5,7 +5,7 @@ export default async function Loading() {
     <main className="loading">
       <IconImporter
         className="loading__icon"
-        name-icon="loader"
+        name-icon="loader.svg"
       />
     </main>
   )

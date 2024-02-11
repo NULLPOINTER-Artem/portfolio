@@ -6,8 +6,6 @@ import "./../scss/styles.scss";
 
 // Components
 import TheHeader from "@/components/TheHeader";
-import Loading from "@/components/Loading";
-import { Suspense } from "react";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const roboto = Roboto({
@@ -39,14 +37,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.variable}`}>
         <div id="top-page" style={{ width: '100%', height: '0px' }}></div>
-
-        <Suspense fallback={<Loading />}>
-          <TheHeader />
+        <TheHeader />
 
           {children}
 
           <SmoothScroll />
-        </Suspense>
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import ImageImporter from "./ImageImporter";
 
 export default function AboutSection() {
   return <>
-    <section className="about-section container">
+    <section id="about" className="about-section container">
       <div className="about-section__desc">
         <h2>About Me</h2>
         <p>

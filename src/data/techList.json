@@ -1,0 +1,245 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "heading": "HTML + CSS/CSS3 & SCSS/SASS & Bootstrap 4/5",
+      "desc": "With a deep understanding of HTML and CSS technologies, I bring creativity and precision to every web project. From crafting elegant user interfaces to ensuring cross-browser compatibility, my expertise in HTML and CSS empowers me to create immersive and visually stunning web experiences that captivate audiences and drive engagement.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "html-icon.svg",
+          "name": "HTML"
+        },
+        {
+          "id": 2,
+          "icon": "css-icon.svg",
+          "name": "CSS"
+        },
+        {
+          "id": 3,
+          "icon": "sass-icon.svg",
+          "name": "SCSS/SASS"
+        },
+        {
+          "id": 4,
+          "icon": "bootstrap-icon.svg",
+          "name": "Bootstrap"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "heading": "Javascript & Typescript",
+      "desc": "With a strong foundation in JavaScript and TypeScript technologies, I bring innovation and efficiency to every web project. From building interactive user interfaces to creating scalable backend solutions, my expertise in JavaScript and TypeScript empowers me to deliver cutting-edge web applications that delight users and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "js-icon.svg",
+          "name": "Javascript"
+        },
+        {
+          "id": 2,
+          "icon": "ts-icon.svg",
+          "name": "Typescript"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "heading": "Vue.js & Nuxt.js",
+      "desc": "With a deep understanding of Vue.js and Nuxt.js technologies, I bring innovation and efficiency to every web project. From building dynamic user interfaces to optimizing web performance and SEO, my expertise in Vue.js and Nuxt.js empowers me to deliver cutting-edge web applications that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "vue-icon.svg",
+          "name": "Vue.js"
+        },
+        {
+          "id": 2,
+          "icon": "nuxt-icon.svg",
+          "name": "Nuxt.js"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "heading": "React.js & Next.js",
+      "desc": "With a deep understanding of React.js and Next.js technologies, I bring innovation and efficiency to every web project. From building dynamic user interfaces to optimizing web performance and SEO, my expertise in React.js and Next.js empowers me to deliver cutting-edge web applications that engage users, drive conversions, and achieve business objectives.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "react-icon.svg",
+          "name": "React.js"
+        },
+        {
+          "id": 2,
+          "icon": "next-js-icon.svg",
+          "name": "Next.js"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "heading": "GSAP & Lenis",
+      "desc": "With expertise in GSAP and Lenis technologies, I bring creativity, innovation, and fluidity to every web project. Whether it's creating stunning animations, implementing smooth scrolling effects, or enhancing user interactions, my proficiency in GSAP and Lenis empowers me to deliver visually appealing and engaging web experiences that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "gsap-icon.svg",
+          "name": "GSAP"
+        },
+        {
+          "id": 2,
+          "icon": "lenis-icon.png",
+          "name": "Lenis"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "heading": "Node.js & Express.js",
+      "desc": "With expertise in Node.js and Express.js technologies, I bring versatility, performance, and reliability to every web project. Whether it's building RESTful APIs, real-time applications, or full-stack web solutions, my proficiency in Node.js and Express.js empowers me to deliver scalable, efficient, and feature-rich web applications that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "node-js-icon.svg",
+          "name": "Node.js"
+        },
+        {
+          "id": 2,
+          "icon": "express-js-icon.svg",
+          "name": "Express.js"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "heading": "PostgreSQL & MongoDB",
+      "desc": "With expertise in PostgreSQL and MongoDB technologies, I bring reliability, flexibility, and performance to every backend project. Whether it's building transactional systems, real-time analytics platforms, or scalable web applications, my proficiency in PostgreSQL and MongoDB empowers me to deliver data-driven solutions that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "postgresql-icon.svg",
+          "name": "PostgreSQL"
+        },
+        {
+          "id": 2,
+          "icon": "mongodb-icon.svg",
+          "name": "MongoDB"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "heading": "Gulp & Webpack & Vite",
+      "desc": "With expertise in Gulp, Webpack, and Vite technologies, I bring efficiency, scalability, and innovation to frontend development projects. Whether it's optimizing assets, streamlining development workflows, or enhancing developer experience, my proficiency in Gulp, Webpack, and Vite empowers me to deliver high-performance and scalable web applications that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "gulp-js-icon.svg",
+          "name": "Gulp"
+        },
+        {
+          "id": 2,
+          "icon": "webpack-icon.svg",
+          "name": "Webpack"
+        },
+        {
+          "id": 3,
+          "icon": "vite-icon.svg",
+          "name": "Vite"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "heading": "GraphQL & HTTP + RESTful API",
+      "desc": "With expertise in GraphQL and HTTP + RESTful API technologies, I bring versatility, performance, and innovation to backend development projects. Whether it's building flexible GraphQL APIs or well-structured RESTful endpoints, my proficiency in modern API technologies empowers me to deliver scalable, efficient, and feature-rich backend systems that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "graphql-icon.svg",
+          "name": "GraphQL"
+        },
+        {
+          "id": 2,
+          "icon": "http-icon.svg",
+          "name": "HTTP"
+        },
+        {
+          "id": 3,
+          "icon": "rest-api-icon.svg",
+          "name": "RESTful API"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "heading": "Bitbucket & Github",
+      "desc": "With expertise in Bitbucket and GitHub technologies, I bring efficiency, transparency, and reliability to development projects. Whether it's managing code repositories, facilitating team collaboration, or contributing to open-source projects, my proficiency in Bitbucket and GitHub empowers me to deliver high-quality software solutions that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "bitbucket-icon.svg",
+          "name": "Bitbucket"
+        },
+        {
+          "id": 2,
+          "icon": "github-icon.svg",
+          "name": "Github"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "heading": "Apache & Nginx",
+      "desc": "With expertise in Apache and Nginx technologies, I bring reliability, efficiency, and scalability to web server environments. Whether it's configuring server settings, optimizing performance, or securing web applications, my proficiency in Apache and Nginx empowers me to deliver high-performance and secure web server environments that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "apache-icon.svg",
+          "name": "Apache"
+        },
+        {
+          "id": 2,
+          "icon": "nginx-icon.svg",
+          "name": "Nginx"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "heading": "Vercel & Firebase",
+      "desc": "With expertise in Vercel and Firebase technologies, I bring scalability, reliability, and efficiency to web application deployments. Whether it's deploying static websites, building real-time applications, or managing user authentication, my proficiency in Vercel and Firebase empowers me to deliver fast, scalable, and feature-rich web applications that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "vercel-icon.svg",
+          "name": "Vercel"
+        },
+        {
+          "id": 2,
+          "icon": "firebase-icon.svg",
+          "name": "Firebase"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "heading": "Linux & Ubuntu",
+      "desc": "With expertise in Linux and Ubuntu technologies, I bring efficiency, scalability, and reliability to server deployments. Whether it's configuring server environments, managing software packages, or automating system administration tasks, my proficiency in Linux and Ubuntu empowers me to deliver stable, secure, and high-performance server deployments that exceed client expectations and drive business growth.",
+      "list": [
+        {
+          "id": 1,
+          "icon": "linux-icon.svg",
+          "name": "Linux"
+        },
+        {
+          "id": 2,
+          "icon": "ubuntu-icon.svg",
+          "name": "Ubuntu"
+        }
+      ]
+    }
+  ]
+}

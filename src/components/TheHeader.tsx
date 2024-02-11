@@ -1,41 +1,86 @@
 'use client'
 
+import { useRouter } from "next/navigation";
+
 // COMPONENTS
 import Link from "next/link"
 import SelectLanguage from "./SelectLanguage";
-import IconImporter from "./IconImporter";
-import ImageImporter from "./ImageImporter";
+import IconImporterClient from "./IconImporterClient";
+import { useEffect, useRef, useState } from "react";
 
 type LinkType = {
   id: number,
   text: string,
-  href: string
+  href: string,
+  active: boolean,
 };
 
 export default function TheHeader() {
-  const links: LinkType[] = [
+  const router = useRouter();
+
+  const [links, setLinks] = useState<LinkType[]>([
     {
       id: 1,
       text: 'About',
-      href: '#about'
+      href: '#about',
+      active: false
     },
-  ];
+    {
+      id: 2,
+      text: 'Interests',
+      href: '#interests',
+      active: false
+    },
+    {
+      id: 3,
+      text: 'Skills & Technologies',
+      href: '#skills',
+      active: false
+    },
+  ]);
 
-  const handleLinkScroll = (currLink: string, event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-
-    const href = '#' + currLink.split('#').splice(-1)[0];
-    window.scrollInstance && window.scrollInstance.scrollTo(href);
-  };
-
-  const handleMenuLogo = (currLink: string, event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-
-    const href = '#' + currLink.split('#').splice(-1)[0];
-    window.scrollInstance && window.scrollInstance.scrollTo(href, {
-      immediate: true, onComplete: () => {
-        toggleMenu();
+  useEffect(() => {
+    console.log('Use Effect');
+    setLinks((links) => links.map((link: LinkType) => {
+      return {
+        ...link,
+        active: link.href === window.location.hash
       }
+    }))
+  }, [])
+
+  const handleLinkScroll = (currLink: string, event: React.MouseEvent<HTMLAnchorElement>, activate?: boolean) => {
+    event.preventDefault();
+
+    const href = '#' + currLink.split('#').splice(-1)[0];
+    router.replace(href, {
+      scroll: false,
+    })
+    setTimeout(() => {
+      setLinks((links) => links.map((link: LinkType) => {
+        return {
+          ...link,
+          active: link.href === href
+        }
+      }))
+    })
+
+    if (activate && activate === true) {
+      window.scrollInstance && window.scrollInstance.start();
+
+      window.scrollInstance && window.scrollInstance.scrollTo(href, {
+        offset: -100,
+        immediate: true,
+        onComplete: () => {
+          toggleMenu();
+        }
+      });
+
+      return;
+    }
+
+    window.scrollInstance && window.scrollInstance.scrollTo(href, {
+      offset: -100,
     });
   };
 
@@ -56,12 +101,8 @@ export default function TheHeader() {
     <header className="the-header">
       <div className="the-header__heading">
         <Link href={'#top-page'} onClick={(event) => handleLinkScroll('#top-page', event)}>
-          <ImageImporter
-            className="the-header__logo"
-            name-image="logo.png"
-            alt="logo AO"
-          />
           <span className="the-header__heading-text">Artem Orlov</span>
+          <span className="the-header__heading-text the-header__heading-text--shorten">Artem O.</span>
         </Link>
       </div>
 
@@ -69,6 +110,7 @@ export default function TheHeader() {
         {links.map((link: LinkType) => (
           <Link
             key={link.id}
+            className={`${link.active ? 'active' : ''}`}
             href={link.href}
             onClick={(event) => handleLinkScroll(link.href, event)}
           >
@@ -80,35 +122,35 @@ export default function TheHeader() {
       <div className="the-header__actions">
         <SelectLanguage className="the-header__select-lang" />
         <button className="the-header__btn-menu" type="button" onClick={toggleMenu}>
-          <IconImporter
+          <IconImporterClient
             className="the-header__btn-icon"
-            name-icon="burger-menu"
+            name-icon="burger-menu.svg"
           />
         </button>
       </div>
 
       <div className="the-header__menu-wrapper">
         <div className="the-header__menu-container" data-lenis-prevent>
-          <Link className="the-header__menu-logo" href={'#top-page'} onClick={(event) => handleMenuLogo('#top-page', event)}>
-            <ImageImporter
-              className="the-header__logo"
-              name-image="logo.png"
-              alt="logo AO"
-            />
-          </Link>
           <SelectLanguage className="the-header__select-lang the-header__menu-select" />
           <button className="the-header__menu-close" type="button" onClick={toggleMenu}>
-            <IconImporter
-              name-icon="close"
+            <IconImporterClient
+              name-icon="close.svg"
             />
           </button>
 
           <nav className="the-header__menu">
+            <Link
+              href={'#top-page'}
+              onClick={(event) => handleLinkScroll('#top-page', event, true)}
+            >
+              Top Page
+            </Link>
             {links.map((link: LinkType) => (
               <Link
                 key={link.id}
+                className={`${link.active ? 'active' : ''}`}
                 href={link.href}
-                onClick={(event) => handleLinkScroll(link.href, event)}
+                onClick={(event) => handleLinkScroll(link.href, event, true)}
               >
                 {link.text}
               </Link>
