@@ -10,10 +10,11 @@
 .the-footer__social {
   padding-left: 0;
   margin: 0 auto;
-  max-width: 330px;
+  max-width: 260px;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, 32px);
+  justify-items: center;
   gap: 40px;
 
   @include media('xs') {

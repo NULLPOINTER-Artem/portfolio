@@ -1,88 +1,99 @@
-'use client'
+'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 // COMPONENTS
-import Link from "next/link"
-import SelectLanguage from "./SelectLanguage";
-import IconImporterClient from "./IconImporterClient";
-import { useEffect, useRef, useState } from "react";
+import Link from 'next/link';
+import SelectLanguage from './SelectLanguage';
+import IconImporterClient from './IconImporterClient';
+import { useEffect, useRef, useState } from 'react';
 
 type LinkType = {
-  id: number,
-  text: string,
-  href: string,
-  active: boolean,
+  id: number;
+  text: string;
+  href: string;
+  active: boolean;
 };
 
 export default function TheHeader() {
   const router = useRouter();
-  const resume_link = 'https://drive.google.com/file/d/14aQReYTJqbLPM3YcWo_LoWkUQ5L7QuAm/view?usp=drive_link';
+  const resume_link =
+    'https://drive.google.com/file/d/14aQReYTJqbLPM3YcWo_LoWkUQ5L7QuAm/view?usp=drive_link';
 
   const [links, setLinks] = useState<LinkType[]>([
     {
       id: 1,
       text: 'About',
       href: '#about',
-      active: false
+      active: false,
     },
     {
       id: 2,
       text: 'Interests',
       href: '#interests',
-      active: false
+      active: false,
     },
     {
       id: 3,
       text: 'Skills & Technologies',
       href: '#skills',
-      active: false
+      active: false,
     },
   ]);
 
   useEffect(() => {
     console.log('Use Effect');
-    setLinks((links) => links.map((link: LinkType) => {
-      return {
-        ...link,
-        active: link.href === window.location.hash
-      }
-    }))
-  }, [])
+    setLinks((links) =>
+      links.map((link: LinkType) => {
+        return {
+          ...link,
+          active: link.href === window.location.hash,
+        };
+      })
+    );
+  }, []);
 
-  const handleLinkScroll = (currLink: string, event: React.MouseEvent<HTMLAnchorElement>, activate?: boolean) => {
+  const handleLinkScroll = (
+    currLink: string,
+    event: React.MouseEvent<HTMLAnchorElement>,
+    activate?: boolean
+  ) => {
     event.preventDefault();
 
     const href = '#' + currLink.split('#').splice(-1)[0];
     router.replace(href, {
       scroll: false,
-    })
+    });
     setTimeout(() => {
-      setLinks((links) => links.map((link: LinkType) => {
-        return {
-          ...link,
-          active: link.href === href
-        }
-      }))
-    })
+      setLinks((links) =>
+        links.map((link: LinkType) => {
+          return {
+            ...link,
+            active: link.href === href,
+          };
+        })
+      );
+    });
 
     if (activate && activate === true) {
       window.scrollInstance && window.scrollInstance.start();
 
-      window.scrollInstance && window.scrollInstance.scrollTo(href, {
-        offset: -100,
-        immediate: true,
-        onComplete: () => {
-          toggleMenu();
-        }
-      });
+      window.scrollInstance &&
+        window.scrollInstance.scrollTo(href, {
+          offset: -100,
+          immediate: true,
+          onComplete: () => {
+            toggleMenu();
+          },
+        });
 
       return;
     }
 
-    window.scrollInstance && window.scrollInstance.scrollTo(href, {
-      offset: -100,
-    });
+    window.scrollInstance &&
+      window.scrollInstance.scrollTo(href, {
+        offset: -100,
+      });
   };
 
   const toggleMenu = () => {
@@ -101,9 +112,14 @@ export default function TheHeader() {
   return (
     <header className="the-header">
       <div className="the-header__heading">
-        <Link href={'#top-page'} onClick={(event) => handleLinkScroll('#top-page', event)}>
+        <Link
+          href={'#top-page'}
+          onClick={(event) => handleLinkScroll('#top-page', event)}
+        >
           <span className="the-header__heading-text">Artem Orlov</span>
-          <span className="the-header__heading-text the-header__heading-text--shorten">Artem O.</span>
+          <span className="the-header__heading-text the-header__heading-text--shorten">
+            Artem O.
+          </span>
         </Link>
       </div>
 
@@ -125,7 +141,11 @@ export default function TheHeader() {
 
       <div className="the-header__actions">
         <SelectLanguage className="the-header__select-lang" />
-        <button className="the-header__btn-menu" type="button" onClick={toggleMenu}>
+        <button
+          className="the-header__btn-menu"
+          type="button"
+          onClick={toggleMenu}
+        >
           <IconImporterClient
             className="the-header__btn-icon"
             name-icon="burger-menu.svg"
@@ -136,10 +156,12 @@ export default function TheHeader() {
       <div className="the-header__menu-wrapper">
         <div className="the-header__menu-container" data-lenis-prevent>
           <SelectLanguage className="the-header__select-lang the-header__menu-select" />
-          <button className="the-header__menu-close" type="button" onClick={toggleMenu}>
-            <IconImporterClient
-              name-icon="close.svg"
-            />
+          <button
+            className="the-header__menu-close"
+            type="button"
+            onClick={toggleMenu}
+          >
+            <IconImporterClient name-icon="close.svg" />
           </button>
 
           <nav className="the-header__menu">
@@ -164,8 +186,7 @@ export default function TheHeader() {
             ))}
           </nav>
         </div>
-
       </div>
     </header>
-  )
+  );
 }
