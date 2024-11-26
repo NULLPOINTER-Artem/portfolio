@@ -9,8 +9,8 @@ export default async function Home() {
   return (
     <main className="home-page">
       <AboutSection />
-      <InterestList />
-      <TechStuckList />
+      {/* <InterestList />
+      <TechStuckList /> */}
     </main>
   );
 }

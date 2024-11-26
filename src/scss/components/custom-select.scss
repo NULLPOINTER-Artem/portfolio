@@ -4,7 +4,7 @@
   width: 100%;
   color: white;
   cursor: pointer;
-  background-color: var(--color-charcoal);
+  background-color: var(--color-black);
   border: 1px solid #000;
 
   &.open {
@@ -13,17 +13,19 @@
     }
   }
 }
+
 .custom-select__selected {
   width: 100%;
   text-align: center;
   padding: 5px 10px;
 }
+
 .custom-select__list {
   display: none;
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: var(--color-charcoal);
+  background-color: var(--color-black);
   border: 1px solid #000;
 
   max-height: 200px;
@@ -32,8 +34,9 @@
   position: absolute;
   z-index: 1;
   left: 0;
-  top: 100%;
+  top: calc(100% + 1px);
 }
+
 .custom-select__item {
   text-align: left;
   cursor: pointer;

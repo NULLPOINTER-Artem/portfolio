@@ -11,17 +11,18 @@
 
 @each $breakpoint, $container-max-width in $breakpoints {
   $max-width: get-max($breakpoints);
+  $max-width-container: map-get($container-breakpoints, $breakpoint);
 
   @media (max-width: $container-max-width) {
     .container {
-      max-width: $container-max-width;
+      max-width: $max-width-container;
     }
   }
 
   @if $container-max-width == $max-width {
     @media (min-width: $container-max-width) {
       .container {
-        min-width: $container-max-width;
+        max-width: $max-width-container;
       }
     }
   }

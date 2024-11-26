@@ -1,34 +1,57 @@
-import Link from "next/link";
-import ImageImporter from "./ImageImporter";
+import IconImporterClient from './IconImporterClient';
+import ImageImporter from './ImageImporter';
+
+/*
+  IDEA - CREATE INTERACTIVE DESIGN TO CHANGE PRIMARY COLOR BY CLICK ON REACT/VUE
+*/
 
 export default function AboutSection() {
-  return <>
-    <section id="about" className="about-section container">
-      <div className="about-section__desc">
-        <h2>About Me</h2>
-        <p>
-          Hello! my name is <b>Artem</b>, as a dedicated <b>frontend developer</b>,
-          I specialize in crafting visually stunning and <b>user-friendly websites that leave a impression</b>.
-        </p>
-        <p>
-          With expertise in <b>HTML, CSS, JavaScript</b>, and various <b>frontend frameworks</b>,
-          I bring your digital vision to life with precision and creativity. <b>From responsive layouts to interactive elements</b>.
-        </p>
-        <p>
-          Ready to take your online presence to the next level? <b>Let&#39;s collaborate</b> and
-          bring your digital vision to reality. <Link href={'#footer'}>Contact me today</Link> to discuss your project
-          requirements and embark on a journey toward digital success.
-        </p>
-      </div>
+  const resume_link =
+    'https://drive.google.com/file/d/1kYbbTv9qqjMzoTrhzf5vPIkVB5n25ZFm/view?usp=sharing';
 
-      <div className="about-section__photo">
-        <div className="about-section__photo-wrapper">
-          <ImageImporter
-            name-image="profile-img.png"
-            alt="Profile image of the Frontend Developer's Artem Orlov"
-          />
+  return (
+    <section id="about" className="container">
+      <h2 className="about-section__position">Frontend Developer</h2>
+
+      <div className="about-section">
+        <div className="about-section__photo">
+          <div className="about-section__photo-wrapper">
+            <ImageImporter
+              name-image="profile-img.png"
+              alt="Profile image of the Frontend Developer's Artem Orlov"
+            />
+          </div>
+
+          <a
+            className="about-section__photo-link"
+            href={resume_link}
+            target="_blank"
+          >
+            Resume
+            <IconImporterClient
+              className="about-section__photo-icon"
+              name-icon="link.svg"
+            />
+          </a>
+        </div>
+
+        <div className="about-section__desc">
+          <h1>
+            Hi, I'm Artem, a front-end developer who thrives on solving problems
+            through code.
+          </h1>
+          <p>
+            With a strong foundation in web technologies, I specialize in
+            creating interactive and dynamic user interfaces. My experience
+            includes working with various libraries and frameworks, including
+            <b className="about-section__desc-react"> React</b> and{' '}
+            <b className="about-section__desc-vue">Vue</b>. I believe that great
+            design is not just about aesthetics but also about functionality and
+            user experience.{' '}
+            <b>Let’s connect and create something impactful!</b>
+          </p>
         </div>
       </div>
     </section>
-  </>
+  );
 }

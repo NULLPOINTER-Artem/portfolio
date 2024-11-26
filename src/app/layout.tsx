@@ -40,7 +40,7 @@ export default function RootLayout({
         <div id="top-page" style={{ width: '100%', height: '0px' }}></div>
         <TheHeader />
         {children}
-        <TheFooter />
+        {/* <TheFooter /> */}
 
         <SmoothScroll />
       </body>

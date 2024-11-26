@@ -1,16 +1,17 @@
-'use client'
+'use client';
 
-import CustomSelect from "./CustomSelect";
+import CustomSelect from './CustomSelect';
 
 type SelectLanguageProps = {
-  children?: React.ReactNode,
-  className?: string,
+  children?: React.ReactNode;
+  className?: string;
 };
 
-export default function SelectLanguage({ className, children }: SelectLanguageProps) {
-  const locales = ['en', 'ru', 'ua'];
+export default function SelectLanguage({
+  className,
+  children,
+}: SelectLanguageProps) {
+  const locales = ['en', 'ua'];
 
-  return (
-    <CustomSelect classNameWrapper={className} listData={locales} />
-  )
+  return <CustomSelect classNameWrapper={className} listData={locales} />;
 }

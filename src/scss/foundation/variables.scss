@@ -13,8 +13,15 @@ $breakpoints: (
   "lg": 1280px,
   "md": 992px,
   "sm": 768px,
-  "xs": 480px
-) !default;
+  "xs": 480px) !default;
+
+$container-breakpoints: (
+  "xxl": 1440px,
+  "xl": 1440px,
+  "lg": 992px,
+  "md": 992px,
+  "sm": 768px,
+  "xs": 480px) !default;
 
 //* First mobile breakpoints
 // $breakpoints-first-mobile: (
@@ -38,76 +45,110 @@ $media-expressions: (
   "handheld": "handheld",
   "landscape": "(orientation: landscape)",
   "portrait": "(orientation: portrait)",
-  "retina2x": (
-    "(-webkit-min-device-pixel-ratio: 2)",
+  "retina2x": ("(-webkit-min-device-pixel-ratio: 2)",
     "(min-resolution: 192dpi)",
     "(min-resolution: 2dppx)"
   ),
-  "retina3x": (
-    "(-webkit-min-device-pixel-ratio: 3)",
+  "retina3x": ("(-webkit-min-device-pixel-ratio: 3)",
     "(min-resolution: 350dpi)",
     "(min-resolution: 3dppx)"
-  )
-) !default;
+  )) !default;
 
 $gutter-width: 30px !default;
 
 :root {
   // Colors
   --color-white: #fff;
-  --color-black: #000;
-  --color-grey: #999;
-  --color-blue: #39f;
-  --color-deep-burnt-sienna: #660000;
-  --color-charcoal: #101920;
-  --color-yellow: #ffe715;
-  --color-back-brown: #201e21;
-  --color-blue-royal: #234e70;
-  --color-dark-purple: #301934;
-  --color-lilac: #aa98a9;
-  --color-iris: #5d3fd3;
+  --color-black: #1a1a1a;
+  --color-gray: #5454547a;
+  --color-blue: #1E88E5;
+  --color-yellow: #FFC107;
   --color-beige: #f5f5dc;
-  --color-gold: #ffd700;
+
+  // Vibrant and Energetic
+  --color-accent: #42b883;
+
+  // Professional and Clean
+  --color-prof-primary: #2C3E50;
+  --color-prof-secondary: #ECF0F1;
+  --color-prof-accent: #E74C3C;
+
+  // Ocean Inspired
+  --color-ocean-primary: #00796B;
+  --color-ocean-secondary: #004D40;
+  --color-ocean-accent: #A7FFEB;
+
+  // Electric Vibes
+  --color-electric-primary: #00BCD4;
+  --color-electric-secondary: #FF5722;
+  --color-electric-accent: #FFC107;
 
   // Fonts
-  --font-sans-serif: var(--font-roboto-main), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-sans-serif: var(--font-roboto-main),
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    "Noto Sans",
+    "Liberation Sans",
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-serif: ui-serif,
+    Georgia,
+    Cambria,
+    "Times New Roman",
+    Times,
+    serif;
+  --font-mono: ui-monospace,
+    "Cascadia Mono",
+    "Segoe UI Mono",
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
 
   // Body base
-  --base-background-color: var(--color-white);
-  --base-font-family: var(--font-sans-serif);
-  --base-font-size: 1.6rem;
-  --base-line-height: 1.2;
-  --base-text-color: var(--color-black);
-  --base-min-width: 320px;
+  --base-background-color: var(--color-black
+  );
+--base-font-family: var(--font-sans-serif);
+--base-font-size: 1.6rem;
+--base-line-height: 1.2;
+--base-text-color: var(--color-beige);
+--base-min-width: 320px;
 
-  // Buttons base
-  --btn-color: var(--color-white);
-  --btn-background: var(--color-blue);
-  --btn-padding: 0.4em 0.7em;
-  --btn-font-size: 1.6rem;
-  --btn-font-family: var(--font-sans-serif);
+// Buttons base
+--btn-color: var(--color-ocean-accent);
+--btn-background: var(--color-ocean-primary);
+--btn-padding: 0.4em 0.7em;
+--btn-font-size: 1.6rem;
+--btn-font-family: var(--font-sans-serif);
 
-  // Forms base
-  --form-font-family: var(--font-sans-serif);
-  --form-element-padding: var(--btn-padding);
-  --form-element-border-color: var(--color-grey);
-  --form-element-focus-border-color: var(--color-black);
-  --placeholder-color: var(--color-grey);
+// Forms base
+--form-font-family: var(--font-sans-serif);
+--form-element-padding: var(--btn-padding);
+--form-element-border-color: var(--color-grey);
+--form-element-focus-border-color: var(--color-black);
+--placeholder-color: var(--color-grey);
 
-  // Headings base
-  --headings-font-family: var(--font-sans-serif);
-  --headings-color: var(--base-text-color);
+// Headings base
+--headings-font-family: var(--font-sans-serif);
+--headings-color: var(--base-text-color);
 
-  // Base font styles for headings
-  --headings-sizes-h1: 3rem;
-  --headings-sizes-h2: 2.7rem;
-  --headings-sizes-h3: 2.4rem;
-  --headings-sizes-h4: 2.1rem;
-  --headings-sizes-h5: 1.7rem;
-  --headings-sizes-h6: 1.5rem;
+// Base font styles for headings
+--headings-sizes-h1: 3rem;
+--headings-sizes-h2: 2.7rem;
+--headings-sizes-h3: 2.4rem;
+--headings-sizes-h4: 2.1rem;
+--headings-sizes-h5: 1.7rem;
+--headings-sizes-h6: 1.5rem;
 }

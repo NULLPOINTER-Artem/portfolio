@@ -1,12 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 // COMPONENTS
 import Link from 'next/link';
 import SelectLanguage from './SelectLanguage';
 import IconImporterClient from './IconImporterClient';
-import { useEffect, useRef, useState } from 'react';
 
 type LinkType = {
   id: number;
@@ -17,8 +17,6 @@ type LinkType = {
 
 export default function TheHeader() {
   const router = useRouter();
-  const resume_link =
-    'https://drive.google.com/file/d/14aQReYTJqbLPM3YcWo_LoWkUQ5L7QuAm/view?usp=drive_link';
 
   const [links, setLinks] = useState<LinkType[]>([
     {
@@ -42,7 +40,6 @@ export default function TheHeader() {
   ]);
 
   useEffect(() => {
-    console.log('Use Effect');
     setLinks((links) =>
       links.map((link: LinkType) => {
         return {
@@ -75,7 +72,7 @@ export default function TheHeader() {
       );
     });
 
-    if (activate && activate === true) {
+    if (activate) {
       window.scrollInstance && window.scrollInstance.start();
 
       window.scrollInstance &&
@@ -97,94 +94,51 @@ export default function TheHeader() {
   };
 
   const toggleMenu = () => {
-    const menuEl = document.querySelector('.the-header__menu-wrapper');
+    // window.scrollInstance && window.scrollInstance.start();
+    // window.scrollInstance && window.scrollInstance.stop();
+  };
 
-    if (menuEl) {
-      window.scrollInstance && window.scrollInstance.start();
-      menuEl.classList.toggle('open');
-
-      if (menuEl.classList.contains('open')) {
-        window.scrollInstance && window.scrollInstance.stop();
-      }
-    }
+  const toggleContact = () => {
+    // window.scrollInstance && window.scrollInstance.start();
+    // window.scrollInstance && window.scrollInstance.stop();
   };
 
   return (
     <header className="the-header">
-      <div className="the-header__heading">
-        <Link
-          href={'#top-page'}
-          onClick={(event) => handleLinkScroll('#top-page', event)}
-        >
-          <span className="the-header__heading-text">Artem Orlov</span>
-          <span className="the-header__heading-text the-header__heading-text--shorten">
-            Artem O.
-          </span>
-        </Link>
-      </div>
-
-      <nav className="the-header__menu the-header__menu--center">
-        <a href={resume_link} target="_blank" rel="noopener noreferrer">
-          Resume
-        </a>
-        {links.map((link: LinkType) => (
+      <div className="the-header__wrapper container">
+        <div className="the-header__heading">
           <Link
-            key={link.id}
-            className={`${link.active ? 'active' : ''}`}
-            href={link.href}
-            onClick={(event) => handleLinkScroll(link.href, event)}
+            href={'#top-page'}
+            onClick={(event) => handleLinkScroll('#top-page', event)}
           >
-            {link.text}
+            <IconImporterClient
+              className="the-header__heading-icon"
+              name-icon="home.svg"
+            />
           </Link>
-        ))}
-      </nav>
+        </div>
 
-      <div className="the-header__actions">
-        <SelectLanguage className="the-header__select-lang" />
-        <button
-          className="the-header__btn-menu"
-          type="button"
-          onClick={toggleMenu}
-        >
-          <IconImporterClient
-            className="the-header__btn-icon"
-            name-icon="burger-menu.svg"
-          />
-        </button>
-      </div>
-
-      <div className="the-header__menu-wrapper">
-        <div className="the-header__menu-container" data-lenis-prevent>
-          <SelectLanguage className="the-header__select-lang the-header__menu-select" />
+        <div className="the-header__actions">
           <button
-            className="the-header__menu-close"
+            className="the-header__btn-contact"
+            type="button"
+            onClick={toggleContact}
+          >
+            Contact
+          </button>
+
+          <SelectLanguage className="the-header__select-lang" />
+
+          <button
+            className="the-header__btn-menu"
             type="button"
             onClick={toggleMenu}
           >
-            <IconImporterClient name-icon="close.svg" />
+            <IconImporterClient
+              className="the-header__btn-icon"
+              name-icon="burger-menu.svg"
+            />
           </button>
-
-          <nav className="the-header__menu">
-            <a href={resume_link} target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
-            <Link
-              href={'#top-page'}
-              onClick={(event) => handleLinkScroll('#top-page', event, true)}
-            >
-              Top Page
-            </Link>
-            {links.map((link: LinkType) => (
-              <Link
-                key={link.id}
-                className={`${link.active ? 'active' : ''}`}
-                href={link.href}
-                onClick={(event) => handleLinkScroll(link.href, event, true)}
-              >
-                {link.text}
-              </Link>
-            ))}
-          </nav>
         </div>
       </div>
     </header>
